@@ -1,0 +1,34 @@
+{
+  "name": "@kraken-project/cli",
+  "version": "0.6.4",
+  "description": "Kraken CLI for desktop.",
+  "bin": {
+    "kraken": "bin/kraken.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js",
+    "build": "sh build.sh",
+    "upload": ""
+  },
+  "files": [
+    "bin",
+    "install.js"
+  ],
+  "author": "Kraken Team",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "temp": "^0.9.1",
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "ali-oss": "^6.5.1",
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "minimist": "^1.2.4",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^3.0.2"
+  },
+  "__npminstall_done": false
+}
