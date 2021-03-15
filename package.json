@@ -1,6 +1,6 @@
 {
   "name": "@kraken-project/cli",
-  "version": "0.6.4",
+  "version": "0.6.6",
   "description": "Kraken CLI for desktop.",
   "bin": {
     "kraken": "bin/kraken.js"
@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "node install.js",
     "build": "sh build.sh",
-    "upload": ""
+    "upload": "node scripts/upload.js"
   },
   "files": [
     "bin",
