@@ -28,7 +28,6 @@ Options:
   -m --runtime-mode <runtimeMode>  Runtime mode, debug | release. (default: "debug")
   --enable-kraken-js-log           print kraken js to dart log (default: false)
   --show-performance-monitor       show render performance monitor (default: false)
-  --js-engine <jsengine>           the JavaScript Engine that executes the code. jsc | v8 (default: "jsc")
   -d, --debug-layout               debug element's paint layout (default: false)
   -h, --help                       output usage information
 ```

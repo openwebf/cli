@@ -1,7 +1,7 @@
 {
-  "name": "@kraken-project/cli",
+  "name": "@openkraken/cli",
   "version": "0.6.6",
-  "description": "Kraken CLI for desktop.",
+  "description": "Command Line Tools for Kraken",
   "bin": {
     "kraken": "bin/kraken.js"
   },
@@ -29,6 +29,5 @@
     "minimist": "^1.2.4",
     "mkdirp": "^0.5.1",
     "rimraf": "^3.0.2"
-  },
-  "__npminstall_done": false
+  }
 }
