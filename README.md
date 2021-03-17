@@ -1,14 +1,16 @@
-## Kraken CLI for Desktop
+## Command Line Tools for Kraken
 
-Kraken is a Flutter & Web standards based rendering engine.
+You can install kraken CLI with npm (you may need to use sudo on Linux or macOS):
 
-More to see https://rax.js.org/kraken
+```
+npm install -g @openkraken/cli
+```
 
-Cli Client support:
+Plaform support:
 
 - [x] macOS
-- [ ] Linux
 - [ ] Windows
+- [ ] Linux
 
 ## Usage
 
