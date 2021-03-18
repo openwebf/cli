@@ -19,7 +19,7 @@ jobs:
       - name: Clone The Code
         run: git clone -b "${BRANCH_NAME}" git@github.com:openkraken/cli.git --depth=1 "${RUNNER_WORKSPACE}/cli_${BRANCH_NAME}";
       - run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && sh build.sh
-      - run: npm publish
+      - run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.ACCESS_TOKEN}}
       - name: Clean Up
