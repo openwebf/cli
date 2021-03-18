@@ -23,4 +23,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.ACCESS_TOKEN}}
       - name: Clean Up
+        if: ${{ always() }}
         run: rm -rf ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME}
