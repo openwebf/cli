@@ -18,10 +18,10 @@ jobs:
         run: echo ${BRANCH_NAME}
       - name: Clone The Code
         run: git clone -b "${BRANCH_NAME}" git@github.com:openkraken/cli.git --depth=1 "${RUNNER_WORKSPACE}/cli_${BRANCH_NAME}";
-      - name: Build Cli Vendor App
-        run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && sh build.sh
       - name: Npm install
         run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && npm install
+      - name: Build Cli Vendor App
+        run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && sh build.sh
       - name: Upload Cli Vendor App
         run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && node scripts/upload.js
       - name: Npm Publish
