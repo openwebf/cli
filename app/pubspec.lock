@@ -169,28 +169,28 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.0"
+    version: "0.7.1"
   kraken_video_player:
     dependency: "direct main"
     description:
       name: kraken_video_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   kraken_websocket:
     dependency: "direct main"
     description:
       name: kraken_websocket
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   kraken_webview:
     dependency: "direct main"
     description:
       name: kraken_webview
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.5.1"
   matcher:
     dependency: transitive
     description:
