@@ -2,7 +2,7 @@
 
 const program = require('commander');
 const chalk = require('chalk');
-const { spawnSync } = require('child_process');
+const { spawn } = require('child_process');
 const { join, resolve } = require('path');
 const packageJSON = require('../package.json');
 const os = require('os');
@@ -82,12 +82,17 @@ program
         env['KRAKEN_BUNDLE_PATH'] = tempPath;
       }
 
-      console.log(shellPath);
       if (fs.existsSync(shellPath)) {
         console.log(chalk.green('Execute binary:'), shellPath, '\n');
-        spawnSync(shellPath, [], {
-          stdio: 'inherit',
+        let childProcess = spawn(shellPath, [], {
+          stdio: 'pipe',
           env,
+        });
+        childProcess.stdout.pipe(process.stdout);
+        childProcess.stderr.on('data', (data) => {
+          let errlog = data.toString();
+          errlog = errlog.split('\n').filter(line => line.indexOf('JavaScriptCore.framework') < 0);
+          process.stderr.write(errlog.join('\n'));
         });
       } else {
         console.error(chalk.red('Kraken Binary NOT exists, try reinstall.'));
