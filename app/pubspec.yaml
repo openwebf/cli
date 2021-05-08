@@ -20,15 +20,16 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
-dependency_overrides:
-  kraken:
-    path: ../../kraken/kraken
+# dependency_overrides:
+#   kraken:
+#     path: ../../kraken/kraken
 
 dependencies:
   flutter:
     sdk: flutter
 
-  kraken: ^0.7.1
+  kraken: ^0.7.2+4
+  kraken_devtools: ^0.1.1
   kraken_video_player: ^0.3.1
   kraken_webview: ^0.5.1
   kraken_websocket: ^0.1.1
