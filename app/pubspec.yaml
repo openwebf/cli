@@ -30,8 +30,8 @@ dependencies:
 
   kraken: ^0.7.3
   kraken_devtools: ^0.1.2+2
-  kraken_video_player: ^0.3.1
-  kraken_webview: ^0.5.1
+  kraken_video_player: ^0.3.4
+  kraken_webview: ^0.5.3
   kraken_websocket: ^0.1.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
