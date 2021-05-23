@@ -176,14 +176,14 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.2+4"
+    version: "0.7.3"
   kraken_devtools:
     dependency: "direct main"
     description:
       name: kraken_devtools
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "0.1.2+2"
   kraken_video_player:
     dependency: "direct main"
     description:
