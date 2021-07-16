@@ -176,7 +176,7 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.3+1"
+    version: "0.7.3+2"
   kraken_devtools:
     dependency: "direct main"
     description:
