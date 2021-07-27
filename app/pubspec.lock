@@ -169,14 +169,14 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.0+1"
+    version: "0.8.1"
   kraken_devtools:
     dependency: "direct main"
     description:
       name: kraken_devtools
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.3.0"
   kraken_video_player:
     dependency: "direct main"
     description:
@@ -197,7 +197,7 @@ packages:
       name: kraken_webview
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0"
+    version: "0.7.0"
   matcher:
     dependency: transitive
     description:
@@ -267,14 +267,14 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   process:
     dependency: transitive
     description:
       name: process
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.1"
+    version: "4.2.3"
   shared_preferences:
     dependency: transitive
     description:
@@ -412,7 +412,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.2"
+    version: "2.2.5"
   xdg_directories:
     dependency: transitive
     description:
