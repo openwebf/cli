@@ -1,4 +1,4 @@
-## Command Line Tools for Kraken
+## Command Line Tools for Kraken  [![npm](https://img.shields.io/npm/v/@openkraken/cli)](https://www.npmjs.com/package/@openkraken/cli)
 
 You can install kraken CLI with npm (you may need to use sudo on Linux or macOS):
 
