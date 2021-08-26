@@ -15,8 +15,6 @@ PODS:
     - FlutterMacOS
   - kraken_webview (0.0.1):
     - FlutterMacOS
-  - path_provider_macos (0.0.1):
-    - FlutterMacOS
   - Reachability (3.2)
   - shared_preferences_macos (0.0.1):
     - FlutterMacOS
@@ -30,7 +28,6 @@ DEPENDENCIES:
   - kraken_video_player (from `Flutter/ephemeral/.symlinks/plugins/kraken_video_player/macos`)
   - kraken_websocket (from `Flutter/ephemeral/.symlinks/plugins/kraken_websocket/macos`)
   - kraken_webview (from `Flutter/ephemeral/.symlinks/plugins/kraken_webview/macos`)
-  - path_provider_macos (from `Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos`)
   - shared_preferences_macos (from `Flutter/ephemeral/.symlinks/plugins/shared_preferences_macos/macos`)
 
 SPEC REPOS:
@@ -54,8 +51,6 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/kraken_websocket/macos
   kraken_webview:
     :path: Flutter/ephemeral/.symlinks/plugins/kraken_webview/macos
-  path_provider_macos:
-    :path: Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos
   shared_preferences_macos:
     :path: Flutter/ephemeral/.symlinks/plugins/shared_preferences_macos/macos
 
@@ -68,7 +63,6 @@ SPEC CHECKSUMS:
   kraken_video_player: 4d7a204c5ec2b8d51b593d853c0d31769144cd6c
   kraken_websocket: 49d32001800a131f14e1f2cce72ccf38f65b6b88
   kraken_webview: f7d5a17dd0a5146a1a8965e17242536e6ae718f6
-  path_provider_macos: a0a3fd666cb7cd0448e936fb4abad4052961002b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences_macos: 480ce071d0666e37cef23fe6c702293a3d21799e
 
