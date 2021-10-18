@@ -28,7 +28,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  kraken: ^0.8.3+3
+  kraken: ^0.8.4
   kraken_devtools: ^0.3.0
   kraken_video_player: ^0.4.0
   kraken_webview: ^0.7.0
