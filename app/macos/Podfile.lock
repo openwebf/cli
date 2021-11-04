@@ -3,8 +3,6 @@ PODS:
     - FlutterMacOS
     - Reachability
   - FlutterMacOS (1.0.0)
-  - jsc (0.0.1):
-    - FlutterMacOS
   - kraken (0.6.3):
     - FlutterMacOS
   - kraken_devtools (0.0.1):
@@ -22,7 +20,6 @@ PODS:
 DEPENDENCIES:
   - connectivity_macos (from `Flutter/ephemeral/.symlinks/plugins/connectivity_macos/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
-  - jsc (from `Flutter/ephemeral/.symlinks/plugins/jsc/macos`)
   - kraken (from `Flutter/ephemeral/.symlinks/plugins/kraken/macos`)
   - kraken_devtools (from `Flutter/ephemeral/.symlinks/plugins/kraken_devtools/macos`)
   - kraken_video_player (from `Flutter/ephemeral/.symlinks/plugins/kraken_video_player/macos`)
@@ -39,8 +36,6 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/connectivity_macos/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
-  jsc:
-    :path: Flutter/ephemeral/.symlinks/plugins/jsc/macos
   kraken:
     :path: Flutter/ephemeral/.symlinks/plugins/kraken/macos
   kraken_devtools:
@@ -57,15 +52,14 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   connectivity_macos: 9f30e9d0e67a0bc08a0c563ee82310b51ca6e818
   FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
-  jsc: 03aef72e4a5a1b2fa7df9abebe8b67218bce483f
-  kraken: 1b6c815708f6468c9301b7c26e357d4f93af6cb0
-  kraken_devtools: b094e9260243e0dfb9658e9a7f534b1a5fbeeb93
-  kraken_video_player: 4d7a204c5ec2b8d51b593d853c0d31769144cd6c
-  kraken_websocket: 49d32001800a131f14e1f2cce72ccf38f65b6b88
-  kraken_webview: f7d5a17dd0a5146a1a8965e17242536e6ae718f6
+  kraken: 8e9fba53cc6f77c50abf1c96d835c25cd09d3d66
+  kraken_devtools: 2570cbc9d9b4fa537a50171ce8e377a95bf2f164
+  kraken_video_player: 07bb472518e21e30107c0b8e07eeb7d40ea0257b
+  kraken_websocket: 3c9eab26495ce231284f5af7ed6b44f4c2007e4a
+  kraken_webview: 7d24086159db09e2ece088287fa511ebfdf1ec33
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences_macos: 480ce071d0666e37cef23fe6c702293a3d21799e
 
 PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
