@@ -8,6 +8,8 @@ const packageJSON = require('../package.json');
 const os = require('os');
 const fs = require('fs');
 const temp = require('temp');
+const Qjsc = require('qjsc');
+const exportDartCode = require('../lib/export_dart');
 
 const SUPPORTED_JS_ENGINE = ['jsc'];
 
@@ -76,7 +78,7 @@ program
         env['KRAKEN_BUNDLE_URL'] = url;
       } else if (source) {
         let t = temp.track();
-        let tempdir = t.openSync({suffix: '.js'});
+        let tempdir = t.openSync({ suffix: '.js' });
         let tempPath = tempdir.path;
         fs.writeFileSync(tempPath, source, { encoding: 'utf-8' });
         env['KRAKEN_BUNDLE_PATH'] = tempPath;
@@ -99,6 +101,27 @@ program
         process.exit(1);
       }
     }
+  });
+
+
+
+program.command('qjsc <source> [destination]')
+  .option('--dart', 'export dart source file contains bytecode')
+  .description('clone a repository into a newly created directory')
+  .action((source, destination, command) => {
+    const bundlePath = resolve(process.cwd(), source);
+    destination = resolve(process.cwd(), destination);
+    const code = fs.readFileSync(bundlePath, { encoding: 'utf-8' });
+    const qjsc = new Qjsc();
+    const buffer = qjsc.compile(code, 'plugin://');
+    let output;
+    if (command.dart) {
+      output = exportDartCode(buffer);
+    } else {
+      output = buffer;
+    }
+    fs.writeFileSync(destination, output);
+    console.log('Bytecode generated at ' + destination);
   });
 
 program.parse(process.argv);
