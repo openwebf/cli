@@ -106,6 +106,7 @@ program
 
 
 program.command('qjsc <source> [destination]')
+  .requiredOption('--pluginName [pluginName]', 'the flutter plugin name')
   .option('--dart', 'export dart source file contains bytecode')
   .description('clone a repository into a newly created directory')
   .action((source, destination, command) => {
@@ -116,7 +117,7 @@ program.command('qjsc <source> [destination]')
     const buffer = qjsc.compile(code, 'plugin://');
     let output;
     if (command.dart) {
-      output = exportDartCode(buffer);
+      output = exportDartCode(buffer, command.pluginName);
     } else {
       output = buffer;
     }
