@@ -8,24 +8,58 @@ on:
     types: [created]
   workflow_dispatch:
 
+env:
+  nodeVersion: "16"
+  cmakeVersion: "3.22.x"
+  flutterVersion: "2.5.3"
+
 jobs:
-  build:
+  build_macos:
     runs-on: self-hosted
     steps:
-      - name: Set branch name
-        run: echo >>$GITHUB_ENV BRANCH_NAME=${GITHUB_REF#refs/heads/}
-      - name: Echo branch name
-        run: echo ${BRANCH_NAME}
-      - name: Clone The Code
-        run: git clone -b "${BRANCH_NAME}" git@github.com:openkraken/cli.git --depth=1 "${RUNNER_WORKSPACE}/cli_${BRANCH_NAME}";
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.nodeVersion }}
+      - uses: jwlawson/actions-setup-cmake@v1.11
+        with:
+          cmake-version: ${{ env.cmakeVersion }}
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: ${{ env.flutterVersion }}
+      - run: flutter config --enable-macos-desktop
+      - run: flutter doctor -v
       - name: Npm install
-        run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && npm install --ignore-scripts
+        run: npm install --ignore-scripts
       - name: Build Cli Vendor App
-        run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && sh build.sh
+        run: sh build.sh
       - name: Upload Cli Vendor App
-        run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && node scripts/upload.js
-      - name: Npm Publish
-        run: cd ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME} && npm publish
-      - name: Clean Up
-        if: ${{ always() }}
-        run: rm -rf ${RUNNER_WORKSPACE}/cli_${BRANCH_NAME}
+        run: OSS_AK=${OSS_AK} OSS_SK=${OSS_SK} node scripts/upload.js
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.nodeVersion }}
+      - uses: jwlawson/actions-setup-cmake@v1.11
+        with:
+          cmake-version: ${{ env.cmakeVersion }}
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: ${{ env.flutterVersion }}
+      - run: flutter config --enable-macos-desktop
+      - run: flutter doctor -v
+      - name: Npm install
+        run: npm install --ignore-scripts
+      - name: Build Cli Vendor App
+        run: sh build.sh
+      - name: Upload Cli Vendor App
+        run: OSS_AK=${OSS_AK} OSS_SK=${OSS_SK} node scripts/upload.js
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
