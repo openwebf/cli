@@ -52,7 +52,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: ${{ env.flutterVersion }}
-      - run: flutter config --enable-macos-desktop
+      - run: flutter config --enable-linux-desktop
       - run: flutter doctor -v
       - name: Npm install
         run: npm install --ignore-scripts
