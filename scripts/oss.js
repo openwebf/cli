@@ -8,8 +8,6 @@ const packageJSON = require('../package.json');
 program
   .version(packageJSON.version)
   .usage('[-s kraken-darwin.tar.gz]')
-  .requiredOption('--ak <string>', 'your aliyun bucket AK')
-  .requiredOption('--sk <string>', 'your aliyun bucket SK')
   .requiredOption('-s, --source <string>', 'the source file to be upload')
   .requiredOption('-n, --name <string>', 'file name').parse(process.argv);
 
@@ -38,7 +36,7 @@ if (!path.isAbsolute(source)) {
   source = path.join(process.cwd(), source);
 }
 
-const client = createClient(program.ak, program.sk);
+const client = createClient(process.env.OSS_AK, process.env.OSS_SK);
 console.log('[Tips]: Uploading', source);
 
 upload(client, `kraken-cli-vendors/${program.name}`, source).then(() => {

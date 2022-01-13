@@ -34,7 +34,7 @@ jobs:
       - name: Build Cli Vendor App
         run: sh build_macos.sh
       - name: Upload Cli Vendor App
-        run: OSS_AK=${OSS_AK} OSS_SK=${OSS_SK} node scripts/upload.js
+        run: OSS_AK=${{ secrets.OSS_AK }} OSS_SK=${{ secrets.OSS_SK }} node scripts/upload.js
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
@@ -59,7 +59,7 @@ jobs:
       - name: Build Cli Vendor App
         run: sh build_linux.sh
       - name: Upload Cli Vendor App
-        run: OSS_AK=${OSS_AK} OSS_SK=${OSS_SK} node scripts/upload.js
+        run: OSS_AK=${{ secrets.OSS_AK }} OSS_SK=${{ secrets.OSS_SK }} node scripts/upload.js
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
