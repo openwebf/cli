@@ -9,18 +9,19 @@ npm install -g @openkraken/cli
 Plaform support:
 
 - [x] macOS
+- [x] Linux
 - [ ] Windows
-- [ ] Linux
 
 ## Usage
 
+**kraken run**
+
 ```sh
-Usage: kraken [filename|URL]
+Usage: kraken run [options] [bundle|url]
 
 Start a kraken app.
 
 Options:
-  -V, --version                    output the version number
   -b --bundle <filename>           Bundle path. One of bundle or url is needed, if both determined, bundle path will be used.
   -u --url <URL>                   Bundle URL. One of bundle or URL is needed, if both determined, bundle path will be used.
   -i --instruct <instruct>         instruct file path.
@@ -30,4 +31,17 @@ Options:
   --show-performance-monitor       show render performance monitor (default: false)
   -d, --debug-layout               debug element's paint layout (default: false)
   -h, --help                       output usage information
+```
+
+**kraken qjsc**
+
+```
+Usage: kraken qjsc [options] <source> [destination]
+
+convert javascript code to quickjs bytecode.
+
+Options:
+  --pluginName [pluginName]  the flutter plugin name.
+  --dart                     export dart source file contains bytecode.
+  -h, --help                 output usage information
 ```

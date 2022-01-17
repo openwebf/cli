@@ -11,6 +11,6 @@ const processOptions = {
   stdio: 'inherit'
 };
 execSync(`curl -O ${downloadUrl}`, processOptions);
-execSync('mkdir build', processOptions);
+execSync('mkdir -p build', processOptions);
 execSync(`tar xzf ${path.join(__dirname, tarName)} -C ./build`, processOptions);
 execSync(`rm ${tarName}`, processOptions);
