@@ -47,6 +47,7 @@ program.command('run [bundle|url]')
   const env = Object.assign({}, process.env);
 
   const shellPath = getShellPath(options.runtimeMode);
+
   // only linux platform need this
   if (os.platform() === 'linux') {
     env['KRAKEN_LIBRARY_PATH'] = resolve(__dirname, '../build/lib');
@@ -145,7 +146,7 @@ function getShellPath(runtimeMode) {
     // Runtime mode = release/debug
     return join(appPath, runtimeMode, 'app.app/Contents/MacOS/app');
   } else if (platform === 'linux') {
-    return join(appPath, 'kraken');
+    return join(appPath, runtimeMode, 'bundle/kraken_example');
   } else {
     console.log(chalk.red(`[ERROR]: Platform ${platform} not supported by ${packageJSON.name}.`));
     process.exit(1);
