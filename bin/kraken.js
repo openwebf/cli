@@ -36,9 +36,6 @@ program.command('run [bundle|url]')
     return;
   }
 
-
-  //   const firstArgs = options.args[0];
-
   if (bundleOrUrl) {
     if (/^http/.test(bundleOrUrl)) {
       url = bundleOrUrl;
