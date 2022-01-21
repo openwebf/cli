@@ -57,7 +57,7 @@ jobs:
       - name: Npm install
         run: npm install --ignore-scripts
       - name: Build Cli Vendor App
-        run: sh build_linux.sh
+        run: bash build_linux.sh
       - name: Upload Cli Vendor App
         run: OSS_AK=${{ secrets.OSS_AK }} OSS_SK=${{ secrets.OSS_SK }} node scripts/upload.js
       - uses: JS-DevTools/npm-publish@v1
