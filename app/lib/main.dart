@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kraken/devtools.dart';
 import 'package:kraken_websocket/kraken_websocket.dart';
 import 'package:kraken_video_player/kraken_video_player.dart';
 import 'package:kraken_webview/kraken_webview.dart';
@@ -11,7 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Kraken Browser',
         // theme: ThemeData.dark(),
-        home: Kraken());
+        home: Kraken(
+            devToolsService: ChromeDevToolsService(),
+            background: Color(0xFFFFFFFF)));
   }
 }
 
