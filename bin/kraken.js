@@ -18,34 +18,66 @@ program
   .version(packageJSON.version);
 
 program.command('run [bundle|url]')
-.description('Start a kraken app.')
-.option('-b --bundle <filename>', 'Bundle path. One of bundle or url is needed, if both determined, bundle path will be used.')
-.option('-u --url <URL>', 'Bundle URL. One of bundle or URL is needed, if both determined, bundle path will be used.')
-.option('-i --instruct <instruct>', 'instruct file path.')
-.option('-s, --source <source>', 'Source code. pass source directory from command line')
-.option('-m --runtime-mode <runtimeMode>', 'Runtime mode, debug | release.', 'debug')
-.option('--enable-kraken-js-log', 'print kraken js to dart log', false)
-.option('--show-performance-monitor', 'show render performance monitor', false)
-.option('-d, --debug-layout', 'debug element\'s paint layout', false)
-.action((bundleOrUrl, command) => {
-  let options;
-  let { bundle, url, source, instruct } = options = command.opts();
+  .description('Start a kraken app.')
+  .option('-b --bundle <filename>', 'Bundle path. One of bundle or url is needed, if both determined, bundle path will be used.')
+  .option('-u --url <URL>', 'Bundle URL. One of bundle or URL is needed, if both determined, bundle path will be used.')
+  .option('-i --instruct <instruct>', 'instruct file path.')
+  .option('-s, --source <source>', 'Source code. pass source directory from command line')
+  .option('-m --runtime-mode <runtimeMode>', 'Runtime mode, debug | release.', 'debug')
+  .option('--enable-kraken-js-log', 'print kraken js to dart log', false)
+  .option('--show-performance-monitor', 'show render performance monitor', false)
+  .option('-d, --debug-layout', 'debug element\'s paint layout', false)
+  .action((bundleOrUrl, command) => {
+    let options;
+    let { bundle, url, source, instruct } = options = command.opts();
 
-  if (!bundle && !url && !source && !bundleOrUrl) {
-    command.help();
-    return;
-  }
-
-
-  //   const firstArgs = options.args[0];
-
-  if (bundleOrUrl) {
-    if (/^http/.test(bundleOrUrl)) {
-      url = bundleOrUrl;
-    } else {
-      bundle = bundleOrUrl;
+    if (!bundle && !url && !source && !bundleOrUrl) {
+      command.help();
+      return;
     }
-  }
+
+    if (bundleOrUrl) {
+      if (/^http/.test(bundleOrUrl)) {
+        url = bundleOrUrl;
+      } else {
+        bundle = bundleOrUrl;
+      }
+    }
+
+    handleRun(bundle, url, source, instruct, options);
+  });
+
+// Same as kraken run, To compact with old version of kraken command. 
+program.description('Start a kraken app.')
+  .option('-b --bundle <filename>', 'Bundle path. One of bundle or url is needed, if both determined, bundle path will be used.')
+  .option('-u --url <URL>', 'Bundle URL. One of bundle or URL is needed, if both determined, bundle path will be used.')
+  .option('-i --instruct <instruct>', 'instruct file path.')
+  .option('-s, --source <source>', 'Source code. pass source directory from command line')
+  .option('-m --runtime-mode <runtimeMode>', 'Runtime mode, debug | release.', 'debug')
+  .option('--enable-kraken-js-log', 'print kraken js to dart log', false)
+  .option('--show-performance-monitor', 'show render performance monitor', false)
+  .option('-d, --debug-layout', 'debug element\'s paint layout', false)
+  .action((options) => {
+    let { bundle, url, source, instruct } = options;
+
+    if (!bundle && !url && !source && !options.args) {
+      program.help();
+    }
+
+    const firstArgs = options.args[0];
+
+    if (firstArgs) {
+      if (/^http/.test(firstArgs)) {
+        url = firstArgs;
+      } else {
+        bundle = firstArgs;
+      }
+    }
+
+    handleRun(bundle, url, source, instruct, options);
+  });
+
+function handleRun(bundle, url, source, instruct, options,) {
 
   const env = Object.assign({}, process.env);
 
@@ -106,8 +138,7 @@ program.command('run [bundle|url]')
     console.error(chalk.red('Kraken Binary NOT exists, try reinstall.'));
     process.exit(1);
   }
-  
-});
+}
 
 program.command('qjsc <source> [destination]')
   .requiredOption('--pluginName [pluginName]', 'the flutter plugin name.')
@@ -117,7 +148,7 @@ program.command('qjsc <source> [destination]')
     if (command.args.length == 0) {
       command.help();
       return;
-    } 
+    }
 
     const bundlePath = resolve(process.cwd(), source);
     destination = resolve(process.cwd(), destination);
