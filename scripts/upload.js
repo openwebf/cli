@@ -17,9 +17,9 @@ const paths = {
   ossFile: path.join(__dirname, 'oss.js')
 };
 
-const platform = 'darwin';
+const platform = os.platform();
 
-task('macos-pack', (done) => {
+task('pack', (done) => {
   const { version } = require(join(paths.root, 'package.json'));
   const filename = `kraken-${platform}-${version}.tar.gz`;
   const fileFullPath = join(paths.dist, filename);
@@ -38,19 +38,23 @@ task('macos-pack', (done) => {
   }
 });
 
-task('macos-upload', (done) => {
+task('upload', (done) => {
   const { version } = require(join(paths.root, 'package.json'));
   const filename = `kraken-${platform}-${version}.tar.gz`;
   const fileFullPath = join(paths.dist, filename);
-  execSync(`node ${paths.ossFile} --ak ${process.env.OSS_AK} --sk ${process.env.OSS_SK} -s ${fileFullPath} -n ${filename}`, {
+  execSync(`node ${paths.ossFile} -s ${fileFullPath} -n ${filename}`, {
     cwd: paths.scripts,
-    stdio: 'inherit'
+    stdio: 'inherit',
+    env: {
+      OSS_AK: process.env.OSS_AK,
+      OSS_SK: process.env.OSS_SK
+    }
   });
   done();
 });
 
 // Run tasks
-series('macos-pack', 'macos-upload')((err) => {
+series('pack', 'upload')((err) => {
   if (err) {
     console.log(err);
   } else {
