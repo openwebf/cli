@@ -54,7 +54,7 @@ jobs:
         with:
           flutter-version: ${{ env.flutterVersion }}
       - name: Install gtk
-        run: sudo apt-get update && sudo apsudo apt-get install libgtk-3-dev
+        run: sudo apt-get update && sudo apt-get install libgtk-3-dev
       - run: flutter config --enable-linux-desktop
       - run: flutter doctor -v
       - name: Npm install
