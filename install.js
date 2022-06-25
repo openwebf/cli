@@ -4,7 +4,7 @@ const path = require('path');
 const packageJSON = require('./package.json');
 
 const tarName = `kraken-${os.platform()}-${packageJSON.version}.tar.gz`;
-const downloadUrl = `https://andycall.oss-cn-beijing.aliyuncs.com/kraken-cli-vendors/kraken-cli-vendors/${tarName}`;
+const downloadUrl = `https://andycall.oss-cn-beijing.aliyuncs.com/kraken-cli-vendors/${tarName}`;
 
 const processOptions = {
   cwd: __dirname,
