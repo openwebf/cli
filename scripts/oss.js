@@ -13,10 +13,10 @@ program
 
 function createClient(ak, sk) {
   return new OSS({
-    region: 'oss-cn-hangzhou',
+    region: 'oss-cn-beijing',
     accessKeyId: ak,
     accessKeySecret: sk,
-    bucket: 'kraken'
+    bucket: 'andycall'
   });
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@openkraken/cli",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Command Line Tools for Kraken",
   "bin": {
     "kraken": "bin/kraken.js"
