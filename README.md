@@ -3,6 +3,7 @@
 You can install kraken CLI with npm (you may need to use sudo on Linux or macOS):
 
 ```
+npm config set foreground-scripts true // Make sure kraken binaries can be downloade via install scripts.
 npm install -g @openkraken/cli
 ```
 
