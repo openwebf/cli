@@ -33,7 +33,6 @@ jobs:
         run: npm install
       - name: Build Cli Vendor Appc
         run: sh build_macos.sh
-      - name: Upload Platform package
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
@@ -64,7 +63,6 @@ jobs:
         run: npm install
       - name: Build Cli Vendor App
         run: bash build_linux.sh
-      - name: Upload Platform package
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
