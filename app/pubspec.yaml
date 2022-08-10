@@ -28,10 +28,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  kraken: ^0.11.0
-  kraken_video_player: ^2.5.0
-  kraken_websocket: ^2.0.0
-  kraken_webview: ^2.5.0
+  webf: ^0.12.0
+  webf_websocket: ^1.0.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0

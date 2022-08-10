@@ -9,19 +9,11 @@ build_release() {
     cd $ROOT/app
     flutter clean
     flutter build macos --release
-    mkdir -p $ROOT/build/darwin/release/app.app
-    mv $ROOT/app/build/macos/Build/Products/Release/app.app $ROOT/build/darwin/release
-}
-
-build_debug() {
-    cd $ROOT/app
-    flutter clean
-    flutter build macos --debug
-    mkdir -p $ROOT/build/darwin/debug/app.app
-    mv $ROOT/app/build/macos/Build/Products/Debug/app.app $ROOT/build/darwin/debug
+    cd $ROOT/app/build/macos/Build/Products/Release
+    tar -zcvf ./app.tar.gz ./app.app
+    mv $ROOT/app/build/macos/Build/Products/Release/app.tar.gz $ROOT/platforms/cli-macos/app.tar.gz
 }
 
 clean
-build_debug
 build_release
 

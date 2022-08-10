@@ -1,9 +1,9 @@
-## Command Line Tools for Kraken  [![npm](https://img.shields.io/npm/v/@openkraken/cli)](https://www.npmjs.com/package/@openkraken/cli)
+## Command Line Tools for WebF  [![npm](https://img.shields.io/npm/v/@openwebf/cli)](https://www.npmjs.com/package/@openwebf/cli)
 
-You can install kraken CLI with npm (you may need to use sudo on Linux or macOS):
+You can install webf CLI with npm (you may need to use sudo on Linux or macOS):
 
 ```
-npm config set foreground-scripts true // Make sure kraken binaries can be downloade via install scripts.
+npm config set foreground-scripts true // Make sure webf binaries can be downloade via install scripts.
 npm install -g @openkraken/cli
 ```
 
@@ -15,7 +15,7 @@ Plaform support:
 
 ## Usage
 
-**kraken run**
+**webf run**
 
 ```sh
 Usage: kraken run [options] [bundle|url]

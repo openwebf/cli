@@ -1,0 +1,19 @@
+{
+  "name": "@openwebf/cli-linux",
+  "version": "0.12.0",
+  "description": "Command Line Tools for WebF",
+  "engines": {
+    "node": ">=10"
+  },
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "files": [
+    "app"
+  ],
+  "author": "openwebf team",
+  "license": "MIT"
+}

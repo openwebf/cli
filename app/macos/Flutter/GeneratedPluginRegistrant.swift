@@ -5,16 +5,12 @@
 import FlutterMacOS
 import Foundation
 
-import connectivity_macos
-import kraken
-import kraken_video_player
-import kraken_webview
+import connectivity_plus_macos
 import shared_preferences_macos
+import webf
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   ConnectivityPlugin.register(with: registry.registrar(forPlugin: "ConnectivityPlugin"))
-  KrakenPlugin.register(with: registry.registrar(forPlugin: "KrakenPlugin"))
-  FLTKrakenVideoPlayerPlugin.register(with: registry.registrar(forPlugin: "FLTKrakenVideoPlayerPlugin"))
-  KrakenWebviewPlugin.register(with: registry.registrar(forPlugin: "KrakenWebviewPlugin"))
   SharedPreferencesPlugin.register(with: registry.registrar(forPlugin: "SharedPreferencesPlugin"))
+  WebFPlugin.register(with: registry.registrar(forPlugin: "WebFPlugin"))
 }
