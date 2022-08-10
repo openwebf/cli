@@ -3,8 +3,7 @@
 You can install webf CLI with npm (you may need to use sudo on Linux or macOS):
 
 ```
-npm config set foreground-scripts true // Make sure webf binaries can be downloade via install scripts.
-npm install -g @openkraken/cli
+npm install -g @openwebf/cli
 ```
 
 Plaform support:
@@ -18,9 +17,9 @@ Plaform support:
 **webf run**
 
 ```sh
-Usage: kraken run [options] [bundle|url]
+Usage: webf run [options] [bundle|url]
 
-Start a kraken app.
+Start a webf app.
 
 Options:
   -b --bundle <filename>           Bundle path. One of bundle or url is needed, if both determined, bundle path will be used.
@@ -28,16 +27,16 @@ Options:
   -i --instruct <instruct>         instruct file path.
   -s, --source <source>            Source code. pass source directory from command line
   -m --runtime-mode <runtimeMode>  Runtime mode, debug | release. (default: "debug")
-  --enable-kraken-js-log           print kraken js to dart log (default: false)
+  --enable-webf-js-log           print webf js to dart log (default: false)
   --show-performance-monitor       show render performance monitor (default: false)
   -d, --debug-layout               debug element's paint layout (default: false)
   -h, --help                       output usage information
 ```
 
-**kraken qjsc**
+**webf qjsc**
 
 ```
-Usage: kraken qjsc [options] <source> [destination]
+Usage: webf qjsc [options] <source> [destination]
 
 convert javascript code to quickjs bytecode.
 
