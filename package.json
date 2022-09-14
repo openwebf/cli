@@ -20,7 +20,7 @@
   "author": "Kraken Team",
   "dependencies": {
     "chalk": "^2.4.2",
-    "commander": "^4.0.1",
+    "commander": "^5.1.0",
     "qjsc": "^0.2.4",
     "temp": "^0.9.1"
   },
