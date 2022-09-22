@@ -179,7 +179,9 @@ program
     destination = resolve(process.cwd(), destination);
     const code = fs.readFileSync(bundlePath, { encoding: "utf-8" });
     const qjsc = new Qjsc();
-    const buffer = qjsc.compile(code, "plugin://");
+    const buffer = qjsc.compile(code, {
+      sourceURL: command.pluginName + '.js' || 'plugin:'
+    });
     let output;
     if (command.dart) {
       output = exportDartCode(buffer, command.pluginName);
