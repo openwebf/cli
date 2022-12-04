@@ -14,8 +14,8 @@
     "lib"
   ],
   "optionalDependencies": {
-    "@openwebf/cli-linux": "^0.12.1",
-    "@openwebf/cli-macos": "^0.12.4"
+    "@openwebf/cli-linux": "^0.13.0",
+    "@openwebf/cli-macos": "^0.13.0"
   },
   "author": "Kraken Team",
   "dependencies": {
