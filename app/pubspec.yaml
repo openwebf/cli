@@ -21,14 +21,14 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 # dependency_overrides:
-#   kraken:
-#     path: ../../kraken/kraken
+#   webf:
+#     path: ../../webf/webf
 
 dependencies:
   flutter:
     sdk: flutter
 
-  webf: ^0.13.1
+  webf: ^0.13.2
   webf_websocket: ^1.1.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

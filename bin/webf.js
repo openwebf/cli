@@ -33,6 +33,7 @@ program
     "Source code. pass source directory from command line"
   )
   .option("--enable-webf-js-log", "print webf js to dart log", false)
+  .option("--remote-debugging-port <port>", "The debug websocket server listenering port.", 9222)
   .option(
     "--show-performance-monitor",
     "show render performance monitor",
@@ -41,7 +42,7 @@ program
   .option("-d, --debug-layout", "debug element's paint layout", false)
   .action((bundleOrUrl, command) => {
     let options;
-    let { bundle, url, source, instruct } = (options = command.opts());
+    let { bundle, url, source, instruct } = (options = program.opts());
 
     if (!bundle && !url && !source && !bundleOrUrl) {
       command.help();
@@ -75,6 +76,7 @@ program
     "-s, --source <source>",
     "Source code. pass source directory from command line"
   )
+  .option("--remote-debugging-port <port>", "The debug websocket server listenering port.", 9222)
   .option("--enable-webf-js-log", "print webf js to dart log", false)
   .option(
     "--show-performance-monitor",
@@ -83,7 +85,7 @@ program
   )
   .option("-d, --debug-layout", "debug element's paint layout", false)
   .action((options) => {
-    let { bundle, url, source, instruct } = options;
+    let { bundle, url, source, instruct } = options.opts();
 
     if (!bundle && !url && !source && !options.args) {
       program.help();
@@ -99,7 +101,7 @@ program
       }
     }
 
-    handleRun(bundle, url, source, instruct, options);
+    handleRun(bundle, url, source, instruct, options.opts());
   });
 
 function handleRun(bundle, url, source, instruct, options) {
@@ -113,6 +115,8 @@ function handleRun(bundle, url, source, instruct, options) {
   if (os.platform() === "linux") {
     env["WEBF_LIBRARY_PATH"] = resolve(__dirname, "../build/lib");
   }
+
+  env['WEBF_REMOTE_DEBUGGING_PORT'] = options.remoteDebuggingPort;
 
   if (options.enableWebfJsLog) {
     env["ENABLE_WEBF_JS_LOG"] = "true";
@@ -151,12 +155,8 @@ function handleRun(bundle, url, source, instruct, options) {
       env,
     });
     childProcess.stdout.pipe(process.stdout);
-    childProcess.stderr.on("data", (data) => {
-      let errlog = data.toString();
-      errlog = errlog
-        .split("\n")
-        .filter((line) => line.indexOf("JavaScriptCore.framework") < 0);
-      process.stderr.write(errlog.join("\n"));
+    process.on('SIGTERM', () => {
+      childProcess.kill();
     });
   } else {
     console.error(chalk.red("WebF Binary NOT exists, try reinstall."));
