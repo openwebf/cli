@@ -1,6 +1,6 @@
 {
   "name": "@openwebf/cli",
-  "version": "0.13.1",
+  "version": "0.13.3",
   "description": "Command Line Tools for WebF",
   "bin": {
     "webf": "bin/webf.js"
