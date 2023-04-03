@@ -32,6 +32,7 @@ program
     "-s, --source <source>",
     "Source code. pass source directory from command line"
   )
+  .option('-r --remote-debugger-proxy <url>', "connect to a remote debugger server instead of starting a local debug server.")
   .option("--enable-webf-js-log", "print webf js to dart log", false)
   .option("--remote-debugging-port <port>", "The debug websocket server listenering port.", 9222)
   .option(
@@ -76,6 +77,7 @@ program
     "-s, --source <source>",
     "Source code. pass source directory from command line"
   )
+  .option('-r --remote-debugger-proxy <url>', "connect to a remote debugger server instead of starting a local debug server.")
   .option("--remote-debugging-port <port>", "The debug websocket server listenering port.", 9222)
   .option("--enable-webf-js-log", "print webf js to dart log", false)
   .option(
@@ -117,6 +119,7 @@ function handleRun(bundle, url, source, instruct, options) {
   }
 
   env['WEBF_REMOTE_DEBUGGING_PORT'] = options.remoteDebuggingPort;
+  env['WEBF_REMOTE_DEBUGGER_PROXY'] = options.remoteDebuggerProxy;
 
   if (options.enableWebfJsLog) {
     env["ENABLE_WEBF_JS_LOG"] = "true";

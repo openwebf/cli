@@ -7,6 +7,7 @@ import 'package:webf/webf.dart';
 
 const String BUNDLE_URL = 'WEBF_BUNDLE_URL';
 const String BUNDLE_PATH = 'WEBF_BUNDLE_PATH';
+const String REMOTE_DEBUGGER_PROXY = 'WEBF_REMOTE_DEBUGGER_PROXY';
 
 String? getBundleURLFromEnv() {
   return Platform.environment[BUNDLE_URL];
@@ -44,10 +45,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    DevToolsService devToolsService;
+    if (Platform.environment.containsKey(REMOTE_DEBUGGER_PROXY)) {
+      devToolsService =
+          RemoteDevServerService(Platform.environment[REMOTE_DEBUGGER_PROXY]!);
+    } else {
+      devToolsService = ChromeDevToolsService();
+    }
+
     return MaterialApp(
         title: 'WebF Browser',
         home: WebF(
-            devToolsService: ChromeDevToolsService(),
+            devToolsService: devToolsService,
             bundle: _bundle,
             background: Color(0xFFFFFFFF)));
   }
