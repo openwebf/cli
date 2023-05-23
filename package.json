@@ -1,6 +1,6 @@
 {
   "name": "@openwebf/cli",
-  "version": "0.13.3",
+  "version": "0.14.0-beta.13",
   "description": "Command Line Tools for WebF",
   "bin": {
     "webf": "bin/webf.js"
@@ -14,11 +14,12 @@
     "lib"
   ],
   "optionalDependencies": {
-    "@openwebf/cli-linux": "^0.13.1",
-    "@openwebf/cli-macos": "^0.13.1"
+    "@openwebf/cli-linux": "^0.14.0-beta.1",
+    "@openwebf/cli-macos": "^0.14.0-beta.3"
   },
   "author": "Kraken Team",
   "dependencies": {
+    "@openwebf/cli": "^0.14.0-beta.3",
     "chalk": "^2.4.2",
     "commander": "^5.1.0",
     "qjsc": "^0.2.4",
