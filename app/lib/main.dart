@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
 
     if (_bundle == null) {
       print('Can not get bundle!');
-      exit(1);
+      // exit(1);
     }
   }
 
@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget {
     if (Platform.environment.containsKey(REMOTE_DEBUGGER_PROXY)) {
       devToolsService =
           RemoteDevServerService(Platform.environment[REMOTE_DEBUGGER_PROXY]!);
+      print('connect to remote debugger proxy: ${Platform.environment[REMOTE_DEBUGGER_PROXY]!}');
     } else {
       devToolsService = ChromeDevToolsService();
     }
