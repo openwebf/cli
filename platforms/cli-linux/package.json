@@ -1,6 +1,6 @@
 {
   "name": "@openwebf/cli-linux",
-  "version": "0.14.0",
+  "version": "0.14.1-beta.1",
   "description": "Command Line Tools for WebF",
   "engines": {
     "node": ">=10"
