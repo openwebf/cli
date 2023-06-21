@@ -15,9 +15,10 @@
   ],
   "optionalDependencies": {
     "@openwebf/cli-linux": "^0.14.0",
-    "@openwebf/cli-macos": "^0.14.0"
+    "@openwebf/cli-macos": "^0.14.0",
+    "@openwebf/cli-windows": "^0.14.0"
   },
-  "author": "Kraken Team",
+  "author": "WebF Team",
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^5.1.0",

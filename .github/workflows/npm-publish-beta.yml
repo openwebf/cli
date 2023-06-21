@@ -92,7 +92,7 @@ jobs:
       - name: Npm install
         run: npm install
       - name: Build Cli Vendor Appc
-        run: powershell build_windows.ps1
+        run: ./build_windows.ps1
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
