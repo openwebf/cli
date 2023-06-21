@@ -10,7 +10,7 @@ Plaform support:
 
 - [x] macOS
 - [x] Linux
-- [ ] Windows
+- [x] Windows
 
 ## Usage
 

@@ -109,9 +109,9 @@ program
 function handleRun(bundle, url, source, instruct, options) {
   const env = Object.assign({}, process.env);
 
-  ensureBundleExist();
-
   const shellPath = getShellPath();
+
+  ensureBundleExist(shellPath);
 
   // only linux platform need this
   if (os.platform() === "linux") {
@@ -202,19 +202,38 @@ if (program.args.length == 0) {
   return;
 }
 
-function ensureBundleExist() {
+function ensureBundleExist(shellPath) {
   const platform = os.platform();
-  let appBundlePath = join(__dirname, "../node_modules/@openwebf", platform === 'darwin' ? 'cli-macos' : `cli-${platform}`, 'app.tar.gz');
+  let packageNameMap = {
+    'win32': 'cli-windows',
+    'linux': 'cli-linux',
+    'darwin': 'cli-macos'
+  };
+
+  let appBundlePath = join(__dirname, "../node_modules/@openwebf", packageNameMap[platform], platform == 'win32' ? 'app.zip' : 'app.tar.gz');
 
   if (!fs.existsSync(appBundlePath)) {
     console.error(chalk.red("Bundle tar NOT exists, try reinstall."));
     process.exit(1);
   }
 
-  execSync(`tar xzf ${appBundlePath} -C ./`, {
-    cwd: join(appBundlePath, '../'),
-    stdio: "inherit",
-  });
+  if (fs.existsSync(shellPath)) {
+    return;
+  }
+
+  
+  if (platform == 'win32') {
+    execSync(`Expand-Archive -LiteralPath '${appBundlePath}' -DestinationPath ./`, {
+      shell: 'powershell',
+      stdio: 'inherit',
+      cwd: join(appBundlePath, '../'),
+    });
+  } else {
+    execSync(`tar xzf ${appBundlePath} -C ./`, {
+      cwd: join(appBundlePath, '../'),
+      stdio: "inherit",
+    });
+  }
 
   return false;
 }
@@ -226,6 +245,8 @@ function getShellPath() {
     return join(appPath, "cli-macos/app.app/Contents/MacOS/app");
   } else if (platform === "linux") {
     return join(appPath, "cli-linux/bundle/webf_example");
+  } else if (platform === 'win32') {
+    return join(appPath, 'cli-windows/Release/app2.exe');
   } else {
     console.log(
       chalk.red(
