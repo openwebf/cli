@@ -75,7 +75,7 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           tag: beta
   build_windows:
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -87,12 +87,12 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.flutterVersion }}
-      - run: flutter config --enable-macos-desktop
+      - run: flutter config --enable-windows-desktop
       - run: flutter doctor -v
       - name: Npm install
         run: npm install
       - name: Build Cli Vendor Appc
-        run: powershell build_windows.ps1
+        run: ./build_windows.ps1
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
