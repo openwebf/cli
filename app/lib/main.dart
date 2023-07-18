@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:webf/devtools.dart';
-import 'package:webf_websocket/webf_websocket.dart';
 import 'package:webf/webf.dart';
 
 const String BUNDLE_URL = 'WEBF_BUNDLE_URL';
@@ -49,7 +48,8 @@ class MyApp extends StatelessWidget {
     if (Platform.environment.containsKey(REMOTE_DEBUGGER_PROXY)) {
       devToolsService =
           RemoteDevServerService(Platform.environment[REMOTE_DEBUGGER_PROXY]!);
-      print('connect to remote debugger proxy: ${Platform.environment[REMOTE_DEBUGGER_PROXY]!}');
+      print(
+          'connect to remote debugger proxy: ${Platform.environment[REMOTE_DEBUGGER_PROXY]!}');
     } else {
       devToolsService = ChromeDevToolsService();
     }
@@ -64,6 +64,5 @@ class MyApp extends StatelessWidget {
 }
 
 void main() {
-  WebFWebSocket.initialize();
   runApp(MyApp());
 }
